@@ -1,6 +1,6 @@
 # Next.js SaaS + RBAC
 
-This project contains all the necessary boilerplate to setup a multi-tenant SaaS with Next.js including authentication and RBAC authorization.
+This project is a multi-tenant SaaS boilerplate built with Next.js, featuring authentication, organization management, member invitations, and Role-Based Access Control (RBAC). It includes fine-grained permissions, project handling within organizations, and usage-based billing features.
 
 ## Features
 
