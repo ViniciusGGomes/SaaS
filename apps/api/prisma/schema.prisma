@@ -74,7 +74,7 @@ model Invite {
   author User?   @relation(fields: [userId], references: [id])
 
   organizationId String       @map("organization_id")
-  organization   Organization @relation(fields: [organizationId], references: [id])
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
   @@unique([email, organizationId])
   @@index([email])
@@ -89,7 +89,7 @@ model Membership {
   user   User   @relation(fields: [userId], references: [id])
 
   organizationId String       @map("organization_id")
-  organization   Organization @relation(fields: [organizationId], references: [id])
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
   @@unique([organizationId, userId])
   @@map("memberships")
@@ -119,13 +119,13 @@ model Project {
   id          String   @id @default(uuid())
   name        String
   description String?
-  slug        String
+  slug        String   @unique
   avatarUrl   String?  @map("avatar_url")
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
   organizationId String       @map("organization_id")
-  organization   Organization @relation(fields: [organizationId], references: [id])
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
   ownerId String @map("owner_id")
   owner   User   @relation(fields: [ownerId], references: [id])
