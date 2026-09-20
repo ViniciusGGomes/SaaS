@@ -1,11 +1,7 @@
 import { prisma } from '@/lib/prisma'
 import { FastifyInstance } from 'fastify'
 import { type ZodTypeProvider } from 'fastify-type-provider-zod'
-<<<<<<< HEAD
 import { z } from 'zod'
-=======
-import { string, z } from 'zod'
->>>>>>> 8b3eed4 (feat(api): implement GitHub OAuth authentication route (/sessions/github))
 import { BadRequestError } from '../_errors/bad-request-error'
 import { env } from '@saas/env'
 
@@ -54,18 +50,6 @@ export async function authenticateWithGithub(app: FastifyInstance) {
 
       const githubAccessTokenData = await githubAccessTokenResponse.json()
 
-<<<<<<< HEAD
-=======
-      /* 2. Busca o perfil do usuário na API do GITHUB */
-
-      // {
-      //   expires_in: 28800,
-      //   refresh_token_expires_in: 15638400,
-      //   token_type: 'bearer',
-      //   scope: 'user:email'
-      // }
-
->>>>>>> 8b3eed4 (feat(api): implement GitHub OAuth authentication route (/sessions/github))
       const { access_token } = z
         .object({
           access_token: z.string(),
