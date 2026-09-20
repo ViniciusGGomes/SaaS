@@ -63,6 +63,7 @@ export async function authenticateWithGoogle(app: FastifyInstance) {
         .parse(googleAccessTokenData)
 
       /* 2. Busca o perfil do usuário na API do Google */
+
       const googleUserResponse = await fetch(
         'https://www.googleapis.com/oauth2/v2/userinfo',
         {
